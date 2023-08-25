@@ -17,25 +17,31 @@ def out(text):
     with open(outfile, "a") as f:
         f.write(text+"\n")
 
+def sys_prompt():
+    syspmt = ("### System: You are an AI assistant that summarises videos based on it's audio transcript. You only use "
+              "information and context from the transcript, in other words, you do not state anything that is not "
+              "explicitly stated in the transcript.\n\n")
+    return syspmt
+
 def quick_llm(text):
     path = "models/llongorca-7b-16k.ggmlv3.q4_K_M.bin"
     llama = Llama(model_path=path, n_gpu_layers=35, seed=-1, n_ctx=4096, rope_freq_scale=0.5)
     if args.detailed:
         for sections in text:
             section = ''.join(sections)
-            output = llama('### Instruction:\n\nList the details from the video shown here:\n"' +section +
+            output = llama(sys_prompt()+'### Instruction:\n\nList the details from the section of video shown here:\n"' +section +
                            '"\n\n### Response:\n', max_tokens=2048, temperature=0.5, stream=args.stream)
             display(output)
     else:
-        output = llama('### Instruction:\n\nSummarise the following concisely:\n"' + text + '"\n\n### Response:\n',
+        output = llama(sys_prompt()+'### Instruction:\n\nSummarise the following concisely:\n"' + text + '"\n\n### Response:\n',
                      max_tokens=2048, stop=['###'], stream=args.stream, temperature=0.4)
         display(output)
 
 def llm(text):
     path = "models/llongorca-7b-16k.ggmlv3.q4_K_M.bin"
     llama = Llama(model_path=path, n_gpu_layers=33, seed=-1, n_ctx=16384, rope_freq_scale=0.25)
-    output = llama('### Instruction:\n\nAccurately summarise all important information from the following and do not add extra information:\n"'
-                   + text + '"\n\n### Response:\n', max_tokens=4096, stop=['###'], stream=args.stream, temperature=0.3)
+    output = llama(sys_prompt()+'### Instruction:\n\nAccurately summarise all important information from the following and do not add extra information:\n"'
+                   + text + '"\n\n### Response:\n', max_tokens=4096, stop=['###'], stream=args.stream, temperature=0.3, echo=True)
     display(output)
 
 def display(output):
