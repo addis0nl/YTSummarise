@@ -4,7 +4,7 @@ Summarise YouTube videos via transcripts and Llama2 LLM.
 
 Optimised for 8GB VRAM.
 
-Colab notebook version: https://colab.research.google.com/drive/1DKMs2d2gUVuFInYDL15QTEnHvY8ulnSc
+Colab notebook version: https://colab.research.google.com/github/addis0nl/YTSummarise/blob/main/YTSummarise.ipynb
 
 ## Installation:
 
