@@ -18,7 +18,7 @@ pip install llama-cpp-python
 ```
 Extract this repository.
 
-Download https://huggingface.co/TheBloke/LlongOrca-7B-16K-GGML/resolve/main/llongorca-7b-16k.ggmlv3.q4_K_M.bin and place into *models* folder.
+Download https://huggingface.co/TheBloke/LlongOrca-7B-16K-GGML/resolve/main/llongorca-7b-16k.ggmlv3.q4_K_M.bin and place into *models* folder (create one).
 
 ## To use:
 
