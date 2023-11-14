@@ -6,7 +6,7 @@ Optimised for 8GB VRAM.
 
 #### Colab notebook version: 
 
-https://colab.research.google.com/github/addis0nl/YTSummarise/blob/main/YTSummarise.ipynb
+https://colab.research.google.com/drive/1DKMs2d2gUVuFInYDL15QTEnHvY8ulnSc?usp=sharing
 
 ## Installation:
 
@@ -14,7 +14,7 @@ https://colab.research.google.com/github/addis0nl/YTSummarise/blob/main/YTSummar
 pip install youtube_transcript_api
 $env:FORCE_CMAKE=1
 $env:CMAKE_ARGS="-DLLAMA_CUBLAS=on"
-pip install llama-cpp-python
+pip install llama-cpp-python==0.1.78
 ```
 Extract this repository.
 
